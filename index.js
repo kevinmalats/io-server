@@ -37,12 +37,15 @@ let id= pro.data.id;
 let data=pro.data;
 switch (req.body.triggered_by) {
 	 case "product.updated":
+	 console.log("update");
 	   update(id);
 		break;
 		case "product.create":
+		console.log("create");
 		 create(data);
 			break;
 		case "product.delete":
+		console.log("delete");
 		 deleted(id);
 			break;
 	default:
@@ -52,16 +55,19 @@ switch (req.body.triggered_by) {
 	res.send({success: true, message: "Ok"});
 })
 function cretae(product){
+	console.log("creando");
 	Moltin.Products.Create(product).then(product => {
 	  // Do something
 	})
 }
 function update(id,data){
+	console.log("actualizando...");
 	Moltin.Products.Update(id, data).then(product => {
 	  // Do something
 	})
 }
 function deleted(id){
+	console.log("eliminando...");
 	Moltin.Products.Delete(id).then(response => {
 	  // Do something
 	})
