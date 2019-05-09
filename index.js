@@ -66,7 +66,7 @@ switch (req.body.triggered_by) {
       id= pro.data.id;
      const product=pro.data;
 		console.log("create");
-    product.id_store=id;
+    product.meta.variations.id=id;
 		try {
 		 body = await	Moltin.Products.Create(product).then(product => {
 			  // Do something
