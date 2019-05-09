@@ -74,6 +74,7 @@ switch (req.body.triggered_by) {
 		 body = await	Moltin.Products.Create(product).then(product => {
 			  // Do something
 				console.log(product);
+        console.log("variations");
         console.log(product.meta.variations);
 			})
  } catch (e) {
