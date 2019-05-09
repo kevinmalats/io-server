@@ -64,12 +64,12 @@ switch (req.body.triggered_by) {
      pro= JSON.parse(req.body.resources);
   	console.log(pro.data);
       id= pro.data.id;
-     const data=pro.data;
+     const product=pro.data;
 		console.log("create");
 		try {
-		 body = await	Moltin.Products.Create(data).then(data => {
+		 body = await	Moltin.Products.Create(product).then(product => {
 			  // Do something
-				console.log(data);
+				console.log(product);
 			})
  } catch (e) {
 
