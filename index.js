@@ -43,7 +43,7 @@ switch (req.body.triggered_by) {
 	 console.log("update");
 	 try {
      console.log("actualizando...");
-		  body = await Moltin.Products.Update(id, data).then(product => {
+		  body = await Moltin.Products.Update(id, data).then(data => {
 	 	 // Do something
 	  })
 
@@ -67,7 +67,7 @@ switch (req.body.triggered_by) {
 		case "product.delete":
 		console.log("delete");
 		try {
-		 body = await	Moltin.Products.Delete(id).then(response => {
+		 body = await	Moltin.Products.Delete(id).then(res => {
 				// Do something
 			})
  } catch (e) {
