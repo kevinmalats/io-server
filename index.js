@@ -40,7 +40,7 @@ switch (req.body.triggered_by) {
 		 create(data);
 			break;
 		case "product.delete":
-		 delete(id);
+		 deleted(id);
 			break;
 	default:
 
@@ -58,7 +58,7 @@ function update(id,data){
 	  // Do something
 	})
 }
-function delete(id){
+function deleted(id){
 	Moltin.Products.Delete(id).then(response => {
 	  // Do something
 	})
