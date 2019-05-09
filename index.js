@@ -47,7 +47,7 @@ switch (req.body.triggered_by) {
 }
 
 		break;
-		case "product.create":
+		case "product.created":
 		console.log("create");
 		try {
 			Moltin.Products.Create(data).then(data => {
