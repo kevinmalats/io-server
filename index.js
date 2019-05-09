@@ -3,7 +3,10 @@ var http = require('http');
 var server = http.createServer(app);
 var io = require('socket.io')(server);
 var PORT = process.env.PORT || 9000;
+var bodyParser = require('body-parser');
 var array = [];
+
+app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
 	res.sendFile(__dirname + '/index.html');
