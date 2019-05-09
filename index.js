@@ -31,7 +31,7 @@ app.post('/webhook', (req, res) => {
   console.log("req.resources");
 	console.log(req.body.resources);
 	console.log("id");
-	console.log(req.body.resources.data.id);
+	console.log(req.body.resources.data);
 let id= req.body.resources.data.id;
 let data=req.body.resources.data;
 switch (req.body.triggered_by) {
