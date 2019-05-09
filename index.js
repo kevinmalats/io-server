@@ -71,7 +71,8 @@ switch (req.body.triggered_by) {
 
 			break;
 		case "product.delete":
-		console.log("delete");
+    let id= req.body.resources.id;
+		console.log("delete "+id);
 		try {
 		 body = await	Moltin.Products.Delete(id).then(res => {
 				// Do something
