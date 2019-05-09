@@ -44,6 +44,7 @@ switch (req.body.triggered_by) {
 		 Moltin.Products.Update(id, data).then(product => {
 	 	 // Do something
 	  })
+    .catch(e => console.log(`.catch(${e})`));
 } catch (e) {
  console.error(`try/catch(${e})`);
 }
