@@ -36,7 +36,7 @@ app.get('/testNotification', (req, res) => {
 	console.log(pro.data);
 let id= pro.data.id;
 let data=pro.data;
-let body="";
+let body;
 console.log("id"+id);
 switch (req.body.triggered_by) {
 	 case "product.updated":
@@ -47,7 +47,8 @@ switch (req.body.triggered_by) {
   'id': id
 }
 	 try {
-     console.log("actualizando..."+data);
+     console.log("actualizando...");
+      console.log(data);
 		  body = await Moltin.Products.Update(id, data).then(product => {
 	 	 // Do something
 	  })
