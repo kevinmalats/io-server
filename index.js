@@ -31,9 +31,7 @@ app.get('/testNotification', (req, res) => {
 
   console.log("req.resources");
 	console.log(req.body.resources);
-	console.log("id");
-
-console.log("id"+id);
+	
 switch (req.body.triggered_by) {
 	 case "product.updated":
    let pro= JSON.parse(req.body.resources);
