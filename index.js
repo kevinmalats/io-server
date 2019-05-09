@@ -38,15 +38,21 @@ let data=pro.data;
 switch (req.body.triggered_by) {
 	 case "product.updated":
 	 console.log("update");
-	   update(id);
+	 Moltin.Products.Update(id, data).then(product => {
+		// Do something
+	})
 		break;
 		case "product.create":
 		console.log("create");
-		 create(data);
+		Moltin.Products.Create(data).then(data => {
+		  // Do something
+		})
 			break;
 		case "product.delete":
 		console.log("delete");
-		 deleted(id);
+		Moltin.Products.Delete(id).then(response => {
+			// Do something
+		})
 			break;
 	default:
 
