@@ -54,19 +54,19 @@ switch (req.body.triggered_by) {
 
 	res.send({success: true, message: "Ok"});
 })
-function cretae(product){
+async function cretae(product){
 	console.log("creando");
 	Moltin.Products.Create(product).then(product => {
 	  // Do something
 	})
 }
-function update(id,data){
+async function update(id,data){
 	console.log("actualizando...");
 	Moltin.Products.Update(id, data).then(product => {
 	  // Do something
 	})
 }
-function deleted(id){
+async function deleted(id){
 	console.log("eliminando...");
 	Moltin.Products.Delete(id).then(response => {
 	  // Do something
