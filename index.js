@@ -76,7 +76,7 @@ switch (req.body.triggered_by) {
  }
 
 			break;
-		case "product.delete":
+		case "product.deleted":
     id= req.body.resources.id;
 		console.log("delete "+id);
 		try {
