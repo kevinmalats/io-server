@@ -64,7 +64,7 @@ switch (req.body.triggered_by) {
      pro= JSON.parse(req.body.resources);
   	console.log(pro.data);
       id= pro.data.id;
-     data=pro.data;
+    let data=pro.data;
 		console.log("create");
 		try {
 		 body = await	Moltin.Products.Create(data).then(data => {
