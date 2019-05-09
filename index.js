@@ -37,6 +37,7 @@ app.post('/webhook', (req, res) => {
 	console.log(pro.data);
 let id= pro.data.id;
 let data=pro.data;
+console.console.log("id"+id);
 switch (req.body.triggered_by) {
 	 case "product.updated":
 	 console.log("update");
