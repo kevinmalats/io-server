@@ -23,7 +23,7 @@ app.get('/testNotification', (req, res) => {
 	res.send({message: 'notification sent'})
 })
 
-async app.post('/webhook', (req, res) => {
+ app.post('/webhook',async (req, res) => {
 
 
 	console.log("req.triggered_by");
