@@ -31,14 +31,17 @@ app.get('/testNotification', (req, res) => {
 
   console.log("req.resources");
 	console.log(req.body.resources);
-	let pro, id, data;
+	let pro;
+  let id;
+  let data;
+  let body;
 switch (req.body.triggered_by) {
 	 case "product.updated":
     pro= JSON.parse(req.body.resources);
  	console.log(pro.data);
   id= pro.data.id;
  //let data=pro.data;
- let body;
+
 	 console.log("update");
    const data = {
   'name': 'Updated product name',
@@ -62,7 +65,6 @@ switch (req.body.triggered_by) {
   	console.log(pro.data);
       id= pro.data.id;
      data=pro.data;
-     body;
 		console.log("create");
 		try {
 		 body = await	Moltin.Products.Create(data).then(data => {
