@@ -23,7 +23,7 @@ app.get('/testNotification', (req, res) => {
 	res.send({message: 'notification sent'})
 })
 
-app.post('/webhook', (req, res) => {
+async app.post('/webhook', (req, res) => {
 
 
 	console.log("req.triggered_by");
@@ -45,7 +45,7 @@ switch (req.body.triggered_by) {
 	 	 // Do something
 	  })
 } catch (e) {
-
+ console.error(`try/catch(${e})`);
 }
 
 		break;
