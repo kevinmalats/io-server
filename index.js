@@ -4,7 +4,13 @@ var server = http.createServer(app);
 var io = require('socket.io')(server);
 var PORT = process.env.PORT || 9000;
 var bodyParser = require('body-parser');
+const MoltinGateway = require('@moltin/sdk').gateway
 var array = [];
+const Moltin = MoltinGateway({
+  client_id: '91DLPpeHqlgEwYI5fcnCF0ks9eKpWe5ujMCu7MdKe2',
+  client_secret: 'Bx4ir66LgpoaeZseE42nhgIFWNqD2oWmrdATiztU18'
+})
+
 
 app.use(bodyParser.json());
 
@@ -18,11 +24,45 @@ app.get('/testNotification', (req, res) => {
 })
 
 app.post('/webhook', (req, res) => {
-console.log("req.resources");
+
+	console.log("req.triggered_by");
+	console.log(req.body.triggered_by);
+
+  console.log("req.resources");
 	console.log(req.body.resources);
+let id= req.body.resources.data.id;
+let data=req.body.resources.data;
+switch (req.body.triggered_by) {
+	 case "product.updated":
+	   update(id);
+		break;
+		case "product.create":
+		 create(data);
+			break;
+		case "product.delete":
+		 delete(id);
+			break;
+	default:
+
+}
+
 	res.send({success: true, message: "Ok"});
 })
-
+function cretae(product){
+	Moltin.Products.Create(product).then(product => {
+	  // Do something
+	})
+}
+function update(id,data){
+	Moltin.Products.Update(id, data).then(product => {
+	  // Do something
+	})
+}
+function delete(id){
+	Moltin.Products.Delete(id).then(response => {
+	  // Do something
+	})
+}
 io.on('connection', (socket) => {
 	console.log(socket.id);
 	console.log('a user connected');
