@@ -38,21 +38,36 @@ let data=pro.data;
 switch (req.body.triggered_by) {
 	 case "product.updated":
 	 console.log("update");
-	 Moltin.Products.Update(id, data).then(product => {
-		// Do something
-	})
+	 try {
+		 Moltin.Products.Update(id, data).then(product => {
+	 	 // Do something
+	  })
+} catch (e) {
+
+}
+
 		break;
 		case "product.create":
 		console.log("create");
-		Moltin.Products.Create(data).then(data => {
-		  // Do something
-		})
+		try {
+			Moltin.Products.Create(data).then(data => {
+			  // Do something
+			})
+ } catch (e) {
+
+ }
+
 			break;
 		case "product.delete":
 		console.log("delete");
-		Moltin.Products.Delete(id).then(response => {
-			// Do something
-		})
+		try {
+			Moltin.Products.Delete(id).then(response => {
+				// Do something
+			})
+ } catch (e) {
+
+ }
+
 			break;
 	default:
 
