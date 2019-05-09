@@ -42,6 +42,7 @@ switch (req.body.triggered_by) {
 	 case "product.updated":
 	 console.log("update");
 	 try {
+     console.log("actualizando...");
 		  body = await Moltin.Products.Update(id, data).then(product => {
 	 	 // Do something
 	  })
