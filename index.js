@@ -60,11 +60,11 @@ switch (req.body.triggered_by) {
 
 		break;
 		case "product.created":
-    let pro= JSON.parse(req.body.resources);
+     pro= JSON.parse(req.body.resources);
   	console.log(pro.data);
-  let id= pro.data.id;
-  let data=pro.data;
-  let body;
+      id= pro.data.id;
+     data=pro.data;
+     body;
 		console.log("create");
 		try {
 		 body = await	Moltin.Products.Create(data).then(data => {
