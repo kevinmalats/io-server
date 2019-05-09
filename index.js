@@ -31,12 +31,12 @@ app.get('/testNotification', (req, res) => {
 
   console.log("req.resources");
 	console.log(req.body.resources);
-	
+	let pro, id, data;
 switch (req.body.triggered_by) {
 	 case "product.updated":
-   let pro= JSON.parse(req.body.resources);
+    pro= JSON.parse(req.body.resources);
  	console.log(pro.data);
- let id= pro.data.id;
+  id= pro.data.id;
  //let data=pro.data;
  let body;
 	 console.log("update");
