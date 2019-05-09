@@ -24,7 +24,7 @@ app.get('/testNotification', (req, res) => {
 })
 
  app.post('/webhook',async (req, res) => {
-
+console.log(req);
 
 	console.log("req.triggered_by");
 	console.log(req.body.triggered_by);
