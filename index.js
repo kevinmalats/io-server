@@ -52,6 +52,7 @@ switch (req.body.triggered_by) {
 		try {
 			Moltin.Products.Create(data).then(data => {
 			  // Do something
+				console.log(data);
 			})
  } catch (e) {
 
