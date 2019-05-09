@@ -39,7 +39,7 @@ switch (req.body.triggered_by) {
    let pro= JSON.parse(req.body.resources);
  	console.log(pro.data);
  let id= pro.data.id;
- let data=pro.data;
+ //let data=pro.data;
  let body;
 	 console.log("update");
    const data = {
