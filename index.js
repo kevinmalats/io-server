@@ -69,11 +69,12 @@ switch (req.body.triggered_by) {
     let variations={};
     variations.id=id;
     product.meta.variations=variations;
-    
+
 		try {
 		 body = await	Moltin.Products.Create(product).then(product => {
 			  // Do something
 				console.log(product);
+        console.log(product.meta.variations);
 			})
  } catch (e) {
 
