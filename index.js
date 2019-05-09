@@ -36,15 +36,16 @@ app.get('/testNotification', (req, res) => {
 	console.log(pro.data);
 let id= pro.data.id;
 let data=pro.data;
+let body="";
 console.log("id"+id);
 switch (req.body.triggered_by) {
 	 case "product.updated":
 	 console.log("update");
 	 try {
-		 Moltin.Products.Update(id, data).then(product => {
+		  body = await Moltin.Products.Update(id, data).then(product => {
 	 	 // Do something
 	  })
-    .catch(e => console.log(`.catch(${e})`));
+
 } catch (e) {
  console.error(`try/catch(${e})`);
 }
@@ -53,7 +54,7 @@ switch (req.body.triggered_by) {
 		case "product.created":
 		console.log("create");
 		try {
-			Moltin.Products.Create(data).then(data => {
+		 body = await	Moltin.Products.Create(data).then(data => {
 			  // Do something
 				console.log(data);
 			})
@@ -65,7 +66,7 @@ switch (req.body.triggered_by) {
 		case "product.delete":
 		console.log("delete");
 		try {
-			Moltin.Products.Delete(id).then(response => {
+		 body = await	Moltin.Products.Delete(id).then(response => {
 				// Do something
 			})
  } catch (e) {
@@ -77,7 +78,7 @@ switch (req.body.triggered_by) {
 
 }
 
-	res.send({success: true, message: "Ok"});
+	res.send({success: true, message: "Ok", body: body });
 })
 async function cretae(product){
 	console.log("creando");
